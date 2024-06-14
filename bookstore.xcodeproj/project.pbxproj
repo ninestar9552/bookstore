@@ -19,6 +19,7 @@
 		E25DB7DB2C1AE0A400868BD5 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25DB7DA2C1AE0A400868BD5 /* SearchResult.swift */; };
 		E25DB7DD2C1AE0C100868BD5 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25DB7DC2C1AE0C100868BD5 /* Book.swift */; };
 		E25DB7DF2C1AE5C400868BD5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25DB7DE2C1AE5C400868BD5 /* SearchView.swift */; };
+		E25DB7E22C1C04B800868BD5 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25DB7E12C1C04B800868BD5 /* SearchBar.swift */; };
 		E2CBAFF42C1A954300D6C7FC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAFF32C1A954300D6C7FC /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		E25DB7DA2C1AE0A400868BD5 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		E25DB7DC2C1AE0C100868BD5 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		E25DB7DE2C1AE5C400868BD5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		E25DB7E12C1C04B800868BD5 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		E2CBAFF32C1A954300D6C7FC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				E25DB7DE2C1AE5C400868BD5 /* SearchView.swift */,
+				E25DB7E12C1C04B800868BD5 /* SearchBar.swift */,
 				E25DB7D72C1AD31000868BD5 /* SearchService.swift */,
 				E25DB7D52C1AD2EC00868BD5 /* SearchViewModel.swift */,
 			);
@@ -304,6 +307,7 @@
 				E25DB7DD2C1AE0C100868BD5 /* Book.swift in Sources */,
 				E25DB7D82C1AD31000868BD5 /* SearchService.swift in Sources */,
 				E25DB7DF2C1AE5C400868BD5 /* SearchView.swift in Sources */,
+				E25DB7E22C1C04B800868BD5 /* SearchBar.swift in Sources */,
 				E21C89E62C17194D005CE328 /* ContentView.swift in Sources */,
 				E25DB7DB2C1AE0A400868BD5 /* SearchResult.swift in Sources */,
 				E21C89E42C17194D005CE328 /* bookstoreApp.swift in Sources */,
@@ -395,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -452,7 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -470,7 +474,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"bookstore/Preview Content\"";
-				DEVELOPMENT_TEAM = 7CBH7S6X99;
+				DEVELOPMENT_TEAM = 3HC54CTUUJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -478,6 +482,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,7 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"bookstore/Preview Content\"";
-				DEVELOPMENT_TEAM = 7CBH7S6X99;
+				DEVELOPMENT_TEAM = 3HC54CTUUJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -507,6 +512,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
