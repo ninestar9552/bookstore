@@ -32,6 +32,10 @@ final class SearchViewModel: ObservableObject {
         do {
             self.keyword = keyword
             let _searchResult = try await searchService.searchBook(keyword: keyword)
+            
+            if _searchResult.books.isEmpty {
+                throw BsError.noResults
+            }
             await MainActor.run {
                 self.searchResult = _searchResult
                 self.books = _searchResult.books

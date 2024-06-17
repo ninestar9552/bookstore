@@ -18,14 +18,14 @@ struct SearchView: View {
     
     var body: some View {
         VStack {
-            SearchBar(text: $searchText, placeholder: "Search") {
+            SearchBarView(text: $searchText, placeholder: "Search") {
                 Task {
                     await viewModel.searchBooks(keyword: searchText)
                 }
             }
             List {
                 ForEach(viewModel.books) { item in
-                    Text(item.title ?? "-")
+                    BookItemView(book: item)
                         .onAppear {
                             if item == viewModel.books.last {
                                 print("마지막 아이템 onAppear\ntitle = \(String(describing: item.title))\nlast  = \(String(describing: viewModel.books.last?.title))")
@@ -40,10 +40,10 @@ struct SearchView: View {
                     ProgressView()
                 }
             }
-            .alert("Error", isPresented: $viewModel.showErrorAlert) {
+            .listStyle(PlainListStyle()) // 좌우 여백 제거
+            .listRowInsets(EdgeInsets()) // ItemView 여백 제거
+            .alert(viewModel.errorMessage, isPresented: $viewModel.showErrorAlert) {
                 Button("OK", role: .cancel) { }
-            } message: {
-                Text(viewModel.errorMessage)
             }
         }
     }

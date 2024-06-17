@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchBar: View {
+struct SearchBarView: View {
     @Binding var text: String
     var placeholder: String
     var onSearchButtonClicked: () -> Void
@@ -33,7 +33,7 @@ struct SearchBar: View {
 
 
 #Preview {
-    SearchBar(text: .constant(""), placeholder: "Search") {
+    SearchBarView(text: .constant(""), placeholder: "Search") {
         
     }
 }
