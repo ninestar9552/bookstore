@@ -17,15 +17,18 @@ struct SearchView: View {
     }
     
     var body: some View {
-        VStack {
-            SearchBarView(text: $searchText, placeholder: "Search") {
-                Task {
-                    await viewModel.searchBooks(keyword: searchText)
+        NavigationView {
+            VStack {
+                SearchBarView(text: $searchText, placeholder: "Search") {
+                    Task {
+                        await viewModel.searchBooks(keyword: searchText)
+                    }
                 }
-            }
-            List {
-                ForEach(viewModel.books) { item in
-                    BookItemView(book: item)
+                List {
+                    ForEach(viewModel.books) { item in
+                        NavigationLink(destination: BookDetailView(isbn13: item.isbn13)) {
+                            BookItemView(book: item)
+                        }
                         .onAppear {
                             if item == viewModel.books.last {
                                 print("마지막 아이템 onAppear\ntitle = \(String(describing: item.title))\nlast  = \(String(describing: viewModel.books.last?.title))")
@@ -34,17 +37,19 @@ struct SearchView: View {
                                 }
                             }
                         }
+                    }
+                    
+                    if viewModel.isLoading {
+                        ProgressView()
+                    }
                 }
-                
-                if viewModel.isLoading {
-                    ProgressView()
+                .listStyle(PlainListStyle()) // 좌우 여백 제거
+                .listRowInsets(EdgeInsets()) // ItemView 여백 제거
+                .alert(viewModel.errorMessage, isPresented: $viewModel.showErrorAlert) {
+                    Button("OK", role: .cancel) { }
                 }
             }
-            .listStyle(PlainListStyle()) // 좌우 여백 제거
-            .listRowInsets(EdgeInsets()) // ItemView 여백 제거
-            .alert(viewModel.errorMessage, isPresented: $viewModel.showErrorAlert) {
-                Button("OK", role: .cancel) { }
-            }
+            .navigationTitle("Search Books")
         }
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BookItemView: View {
     let book: Book
+    @State private var showSafariView = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -48,10 +49,16 @@ struct BookItemView: View {
                         .font(.caption)
                     Text("Price: \(book.price)")
                         .font(.caption)
-                    Link(destination: URL(string: book.url)!) {
+                    
+                    Button(action: {
+                        showSafariView.toggle()
+                    }) {
                         Text(book.url)
                             .font(.caption)
                             .foregroundColor(.blue)
+                    }
+                    .sheet(isPresented: $showSafariView) {
+                        SafariView(url: URL(string: book.url)!)
                     }
                 }
                 .padding(.leading, 8)
