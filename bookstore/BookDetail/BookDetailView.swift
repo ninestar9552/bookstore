@@ -21,13 +21,25 @@ struct BookDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                AsyncImage(url: URL(string: viewModel.bookDetail.image)) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: .infinity)
-                } placeholder: {
+                if let imageUrl = URL(string: viewModel.bookDetail.image) {
+                    CachedAsyncImage(
+                        url: imageUrl,
+                        cache: ImageCache.shared,
+                        placeholder: {
+                            ProgressView()
+                        },
+                        image: { Image(uiImage: $0).resizable() }
+                    )
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity)
+                    .clipped()
+                } else {
                     ProgressView()
+                        .frame(height: 200)
+//                    Image(systemName: "photo")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(width: geometry.size.width, height: geometry.size.width)
                 }
                 
                 Group {

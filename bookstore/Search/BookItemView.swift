@@ -15,26 +15,18 @@ struct BookItemView: View {
         VStack(alignment: .leading) {
             HStack {
                 GeometryReader { geometry in
-                    AsyncImage(url: URL(string: book.image)) { phase in
-                        switch phase {
-                        case .empty:
+                    CachedAsyncImage(
+                        url: URL(string: book.image)!,
+                        cache: ImageCache.shared,
+                        placeholder: {
                             ProgressView()
                                 .frame(width: geometry.size.width, height: geometry.size.width)
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .scaledToFit() // 이미지가 잘리지 않고 여백 없이 채우도록 설정
-                                .frame(width: geometry.size.width, height: geometry.size.height)
-                                .clipped()
-                        case .failure:
-                            Image(systemName: "photo")
-                                .resizable()
-                                .scaledToFit() // 여백 없이 채우도록 설정
-                                .frame(width: geometry.size.width, height: geometry.size.width)
-                        @unknown default:
-                            EmptyView()
-                        }
-                    }
+                        },
+                        image: { Image(uiImage: $0).resizable() }
+                    )
+                    .scaledToFit()
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .clipped()
                 }
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: 100, height: 117)

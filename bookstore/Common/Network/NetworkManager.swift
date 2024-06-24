@@ -45,7 +45,7 @@ class NetworkManager {
     func getRequest<T: Decodable>(path: String, responseType: T.Type) async throws -> T {
         do {
             let data = try await self.getRequest(path: path)
-            print(String(data: data, encoding: .utf8))
+            print(String(data: data, encoding: .utf8) ?? "")
             
             let decoder = JSONDecoder()
             let decodedResponse = try decoder.decode(T.self, from: data)
